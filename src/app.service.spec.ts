@@ -27,9 +27,7 @@ describe('AppService', () => {
         .pipe(mergeMap((hash) => appService.retrieve(hash)))
         .pipe(tap((retrieved) => expect(retrieved).toEqual(url)))
         .subscribe({
-          // eslint-disable-next-line @typescript-eslint/no-unused-vars
           next: (_value) => {}, // handle next values here
-          // eslint-disable-next-line @typescript-eslint/no-unused-vars
           error: (error) => {}, // handle errors here
           complete: () => done(),
         });

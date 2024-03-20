@@ -6,6 +6,8 @@ export interface AppRepository {
   get(hash: string): Observable<string>;
   getAll(): Promise<string[]>;
   delete(hash: string): Promise<void>;
+  incrementClicks(hash: string): Promise<void>;
+  getClicks(hash: string): Promise<{ count: number; times: Date[] }>;
 }
 
 export const AppRepositoryTag = 'AppRepository';

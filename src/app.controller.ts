@@ -45,7 +45,9 @@ export class AppController {
   }
 
   @Get('analytics/:hash')
-  async getAnalytics(@Param('hash') hash: string): Promise<{ count: number, times: Date[] }> {
+  async getAnalytics(
+    @Param('hash') hash: string,
+  ): Promise<{ count: number; times: Date[] }> {
     return this.appService.getClicks(hash);
   }
 

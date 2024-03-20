@@ -40,11 +40,10 @@ export class AppRepositoryRedis implements AppRepository {
 
   async incrementClicks(hash: string): Promise<void> {
     const timestamp = Date.now();
-    await this.redisClient.zAdd(
-      `analytics:${hash}:times`,
-      timestamp,
-      timestamp.toString(),
-    );
+    await this.redisClient.zAdd(`analytics:${hash}:times`, {
+      score: timestamp,
+      value: timestamp.toString(),
+    });
     await this.redisClient.hIncrBy(`analytics:${hash}`, 'count', 1);
   }
 
