@@ -27,7 +27,7 @@ $ docker-compose up -d
 
 ```
 
-## RUn the app
+## Run the app
 
 Either run the app in postman calling the routes or do the following:
 
